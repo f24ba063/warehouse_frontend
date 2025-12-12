@@ -1,0 +1,40 @@
+﻿body{
+    background-color: #eef;
+    padding : 5px;
+}
+
+#header {
+    padding: 10px;
+    background-color: #eee;
+}
+
+#header-title {
+    display: inline-block;
+    margin:10px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 15px;
+
+}
+
+#header-nav{
+    display: inline;
+}
+
+.header-link{
+    margin-right:10px;
+    font-size: 20px;
+    background-color:#ddd;
+    padding: 5px;
+    border: #333 solid 1px;
+    border-radius: 4px;
+    color: #111
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
