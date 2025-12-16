@@ -1,4 +1,6 @@
-﻿export const slipHistory = [
+﻿//H2サーバ立ち上げ前に使ったダミー
+
+export const slipHistory = [
     {
         slipId: "S001",
         type: "inbound",

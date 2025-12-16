@@ -16,7 +16,7 @@ export default function Home() {
 	const moveToSlipHistory = async () => {
 		navigate("/slipHistory");
 	}
-	const moveToMaster = async () => {
+	const moveToMasterHome = async () => {
 		navigate("/master");
 	}
 	return (
@@ -58,7 +58,7 @@ onClick={moveToInventory}
 				<button
 					type="button"
 					class="home-button"
-					onClick={moveToMaster}
+					onClick={moveToMasterHome}
 					>
 					マスター管理
 				</button>
