@@ -1,52 +1,51 @@
 ﻿import { useEffect, useState } from 'react';
 import ProductAddingForm from '../../../components/AddingForms/ProductAddingForm'
-//import ProductAddingForm from '../../components/ProductAddingForms';
+import WarehouseAddingForm from '../../components/WarehouseAddingForms';
 
-//商品マスターを表示する画面。
-//変数productsにはDBより商品を受け取り一覧表示、
-//変数showFormは新商品登録のためのフォームの表示を切り替える
+
 
 export default function WarehouseMaster() {
-    const [warehouse, setWarehouse] = useState([]);
+    const [warehouses, setWarehouses] = useState([]);
     const [showForm, setShowForm] = useState(false);
 
-    const fetchWarehouses = () =>  fetch("http://localhost:8080/api/master/warehouse")
-        .then(res => {
-            if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-            return res.json();
-        })
-        .then(data => setWarehouse(data))
-        .catch(err => console.error(err));
-
-    useEffect(() => {
-        fetchWarehouses();
-    }, [])
-
+    //springからの吸い出し機能、新要素追加機能、不可視化機能
+    const fetchWarehouses = () =>
+        fetch('http://localhost:8080/api/master/warehouse')
+            .then(res => {
+                if (!res.ok) throw nre Error(res.status);
+                return res.json();
+            })
+            .then(data => setWarehouse(data))
+            .catch(err => console.error(err));
     
 
-    const listWarehouses = warehouse.map(e => (
+    const listWarehouses = warehouse
+        .filter(w => w.isVisivle != 0)
+        .map(e => (
         <tr key={e.warehouseId}>
             <td>{e.warehouseId}</td>
             <td>{e.warehouseName}</td>
+            <td>
+                <button onClick={() => handleSoftDelete(e.warehouseId)}>削除</button>    
+            </td>
         </tr>
     ))
 
     return (
         <>
-            <h1>倉庫マスタ管理ページ</h1>
-            <div>
+            <button type="button" onClick={() => setShowForm(true)}>新規登録</button>
+
                 {showForm && (
                     <div>
                         {/* ここに ProductAddingForm コンポーネントを置く */}
-                        <ProductAddingForm
-                            onSubmitSuccess={() => {
-                                setShowForm(false);
-                                fetchWarehouses();
+                        <WarehouseAddingForm
+                            onSubmitSuccess={(newWarehouse) => {
+                            setWarehouse([...warehouses, newWarehouse]);
+                            setShowForm(false);
                             }}
                         />
                     </div>
                 )}
-            </div>
             <table border="1">
                 <thead>
                     <tr>
