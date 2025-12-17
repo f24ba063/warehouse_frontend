@@ -1,6 +1,5 @@
 ﻿import { useEffect, useState } from 'react';
-import ProductAddingForm from '../../../components/AddingForms/ProductAddingForm'
-import WarehouseAddingForm from '../../components/WarehouseAddingForms';
+
 
 
 
@@ -12,14 +11,14 @@ export default function WarehouseMaster() {
     const fetchWarehouses = () =>
         fetch('http://localhost:8080/api/master/warehouse')
             .then(res => {
-                if (!res.ok) throw nre Error(res.status);
+                if (!res.ok) throw new Error(res.status);
                 return res.json();
             })
-            .then(data => setWarehouse(data))
+            .then(data => setWarehouses(data))
             .catch(err => console.error(err));
     
 
-    const listWarehouses = warehouse
+    const listWarehouses = warehouses
         .filter(w => w.isVisivle != 0)
         .map(e => (
         <tr key={e.warehouseId}>
@@ -40,7 +39,7 @@ export default function WarehouseMaster() {
                         {/* ここに ProductAddingForm コンポーネントを置く */}
                         <WarehouseAddingForm
                             onSubmitSuccess={(newWarehouse) => {
-                            setWarehouse([...warehouses, newWarehouse]);
+                            setWarehouses([...warehouses, newWarehouse]);
                             setShowForm(false);
                             }}
                         />

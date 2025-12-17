@@ -26,14 +26,14 @@ export default function Home() {
 			<div id="button-container-home">
 				<button
 					type="button"
-					class="home-button"
+					className="home-button"
 					onClick={moveToIncoming}>
 					入庫伝票作成
 				</button>
 
 				<button
 					type="button"
-					class="home-button"
+					className="home-button"
 					onClick={moveToOutgoing }
 					>
 					出庫伝票作成
@@ -41,7 +41,7 @@ export default function Home() {
 
 				<button
 					type="button"
-					class="home-button"
+					className="home-button"
 onClick={moveToInventory}
 					>
 					在庫一覧
@@ -49,7 +49,7 @@ onClick={moveToInventory}
 
 				<button
 					type="button"
-					class="home-button"
+					className="home-button"
 					onClick={moveToSlipHistory}
 					>
 					伝票履歴
@@ -57,7 +57,7 @@ onClick={moveToInventory}
 
 				<button
 					type="button"
-					class="home-button"
+					className="home-button"
 					onClick={moveToMasterHome}
 					>
 					マスター管理
