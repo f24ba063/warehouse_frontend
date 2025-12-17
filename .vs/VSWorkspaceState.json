@@ -3,13 +3,14 @@
     "",
     "\\src",
     "\\src\\api",
-    "\\src\\components\\AddingForms",
     "\\src\\pages",
     "\\src\\pages\\Master",
+    "\\src\\pages\\Master\\common",
+    "\\src\\pages\\Master\\ProductMaster",
     "\\src\\pages\\Master\\WarehouseMaster",
     "\\src\\pages\\OutgoingSlip",
     "\\src\\router"
   ],
-  "SelectedNode": "\\src\\pages\\Master\\WarehouseMaster\\WarehouseMaster.jsx",
+  "SelectedNode": "\\src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
   "PreviewInSolutionExplorer": false
 }
