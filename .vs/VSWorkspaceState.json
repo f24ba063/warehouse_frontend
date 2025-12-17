@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\AddingForms",
+    "\\src\\pages",
+    "\\src\\pages\\Master",
+    "\\src\\pages\\Master\\ProductMaster",
+    "\\src\\pages\\Master\\WarehouseMaster",
+    "\\src\\pages\\OutgoingSlip",
+    "\\src\\router"
+  ],
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\AddingForms",
+    "\\src\\pages",
+    "\\src\\pages\\Master",
+    "\\src\\pages\\Master\\ProductMaster",
+    "\\src\\pages\\Master\\WarehouseMaster",
+    "\\src\\pages\\OutgoingSlip",
+    "\\src\\router"
+  ],
+  "SelectedNode": "\\src\\pages\\Master\\ProductMaster\\ProductMaster.jsx",
+  "PreviewInSolutionExplorer": false
+}

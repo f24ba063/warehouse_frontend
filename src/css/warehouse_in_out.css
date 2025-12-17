@@ -1,0 +1,41 @@
+﻿.id-text{
+    width:200px;
+    height: 30px;
+    margin : 10px
+}
+
+table {
+    width: 1100px;
+    table-layout: fixed; /* これで列幅が均等または指定どおりになる */
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 4px;
+    text-align: left;
+}
+
+td input {
+    width: 100%; /* セルいっぱいに広げる */
+    box-sizing: border-box;
+}
+.order-table td:last-child
+{
+    text-align: center;
+}
+
+button {
+    border: 1px solid #000;
+    margin : 3px;
+}
+
+#add-column {
+    text-align:left;
+    color: red;
+}
+
+.saveBtn {
+    margin-right: 30px;
+    margin-left: 30px;
+}
