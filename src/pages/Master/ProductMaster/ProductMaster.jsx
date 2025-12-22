@@ -1,7 +1,9 @@
 ﻿import '../../../css/warehouse_in_out.css';
-
+import { useState, useEffect } from 'react';
 
 export default function ProductMaster() {
+    const [rows, setRows] = useState([]);
+
 
 
 
@@ -22,7 +24,7 @@ export default function ProductMaster() {
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    {response}
                 </tbody>
             </table>
         </>

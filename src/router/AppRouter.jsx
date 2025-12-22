@@ -14,7 +14,6 @@ export default function AppRouter() {
                 <Route path="/" element={ <Login />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/master" element={<Master />} />
-                <Route path="/master" element={<Master />} />
                 <Route path="/master/productMasterPage" element={<ProductMasterPage />} />
                
             </Routes>
