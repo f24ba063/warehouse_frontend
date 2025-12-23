@@ -21,7 +21,7 @@ export default function MasterPageSkelton() {
                     </tr>
                 </thead>
                 <tbody>
-
+                    <ProductMaster />
                 </tbody>
             </table>
         </>
