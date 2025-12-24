@@ -4,6 +4,10 @@ import Home from '../pages/Home/Home';
 import Master from '../pages/Master/Master';
 import Header from '../components/Header';
 import ProductMasterPage from '../pages/Master/ProductMaster/ProductMasterPage'
+import WarehouseMasterPage from '../pages/Master/WarehouseMaster/WarehouseMasterPage'
+import MakerMasterPage from '../pages/Master/MakerMaster/MakerMasterPage'
+import PartnerMasterPage from '../pages/Master/PartnerMaster/PartnerMasterPage'
+import LocationMasterPage from '../pages/Master/LocationMaster/LocationMasterPage'
 
 export default function AppRouter() {
 
@@ -15,7 +19,10 @@ export default function AppRouter() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/master" element={<Master />} />
                 <Route path="/master/productMasterPage" element={<ProductMasterPage />} />
-               
+                <Route path="/master/warehouseMasterPage" element={<WarehouseMasterPage />} />
+                <Route path="/master/makerMasterPage" element={<MakerMasterPage />} />
+                <Route path="/master/partnerMasterPage" element={<PartnerMasterPage />} />
+                <Route path="/master/locationMasterPage" element={<LocationMasterPage />} />
             </Routes>
         </Router>
     )

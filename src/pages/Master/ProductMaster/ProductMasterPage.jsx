@@ -1,6 +1,7 @@
 ﻿import ProductMaster from './ProductMaster';
 import ProductMasterHeader from './ProductMasterHeader';
 
+
 export default function ProductMasterPage() {
     return (
         <>

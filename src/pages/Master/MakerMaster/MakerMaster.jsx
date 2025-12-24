@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import DeleteButton from '../common/DeleteButton';
 import urls from '../../../urls/urls'
 
-export default function WarehouseMaster() {
-    //springのapi/master/warehousesからデータを吸い出している
+export default function MakerMaster() {
+    //springのapi/master/makersからデータを吸い出している
     const [rows, setRows] = useState([]);
     useEffect(() => {
         const load = async () => {
-            const a = await fetch(urls.warehouses);
+            const a = await fetch(urls.makers);
             const body = await a.json();
             setRows(body);
         };
@@ -16,14 +16,14 @@ export default function WarehouseMaster() {
     }, []);
 
     // 削除ボタンで呼ぶ処理
-    const handleDelete = async (warehouseId) => {
+    const handleDelete = async (makerId) => {
         // まず画面上の表示を更新
         setRows(rows =>
-            rows.map(r => r.warehouseId === warehouseId ? { ...r, isVisible: 0 } : r)
+            rows.map(r => r.makerId === makerId ? { ...r, isVisible: 0 } : r)
         );
 
         // Spring側のPATCH APIを叩く
-        await fetch(`${urls.warehouses}/${warehouseId}/softDelete`, {
+        await fetch(`${urls.makers}/${makerId}/softDelete`, {
             method: 'PATCH'
         });
     };
@@ -35,14 +35,14 @@ export default function WarehouseMaster() {
                     {rows
                         .filter(r => r.isVisible === 1)
                         .map(res => (
-                            <tr key={res.warehouseId}>
-                                <td>{res.warehouseId}</td>
-                                <td>{res.warehouseName}</td>
-                                <td>{res.warehouseAddress}</td>
+                            <tr key={res.makerId}>
+                                <td>{res.makerId}</td>
+                                <td>{res.makerName}</td>
+                                <td>{res.makerAddress}</td>
                                 <td>{res.access}</td>
                                 <td>{res.mail}</td>
                                 <td>
-                                    <DeleteButton onClick={() => handleDelete(res.warehouseId)} />
+                                    <DeleteButton onClick={() => handleDelete(res.makerId)} />
                                 </td>
                             </tr>
                         ))}

@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\api",
+    "\\src\\css",
+    "\\src\\data",
     "\\src\\pages",
     "\\src\\pages\\Master",
-    "\\src\\pages\\Master\\common",
-    "\\src\\pages\\Master\\ProductMaster",
-    "\\src\\pages\\Master\\WarehouseMaster",
-    "\\src\\pages\\OutgoingSlip",
-    "\\src\\router"
+    "\\src\\pages\\Master\\LocationMaster",
+    "\\src\\pages\\Master\\PartnerMaster",
+    "\\src\\router",
+    "\\src\\urls"
   ],
-  "SelectedNode": "\\src\\pages\\Master\\common\\DeleteButton.jsx",
+  "SelectedNode": "\\src\\pages\\Master\\LocationMaster\\LocationMaster.jsx",
   "PreviewInSolutionExplorer": false
 }
