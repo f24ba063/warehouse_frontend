@@ -2,29 +2,35 @@
 import { useState, useEffect } from 'react';
 import DeleteButton from '../common/DeleteButton';
 import urls from '../../../urls/urls'
+import softDelete from '../../../utils/softDelete';
 
 export default function ProductMaster() {
     //springのapi/master/productsからデータを吸い出している
     const [rows, setRows] = useState([]);
     useEffect(() => {
         const load = async () => {
-            const a = await fetch(urls.products);
-            const body = await a.json();
-            setRows(body);
+            try {
+                const a = await fetch(urls.products);
+                const body = await a.json();
+                setRows(body);
+            } catch (error) {
+                console.error('情報の取得に失敗しました：', error);
+            }
         };
         load();
     }, []);
 
     // 削除ボタンで呼ぶ処理
-    const handleDelete = async (productId) => {
-        // まず画面上の表示を更新
-        setRows(rows =>
-            rows.map(r => r.productId === productId ? { ...r, isVisible: 0 } : r)
-        );
-
-        // Spring側のPATCH APIを叩く
-        await fetch(`${urls.products}/${productId}/softDelete`, {
-            method: 'PATCH'
+    const handleDelete = (productId) => {
+        softDelete({
+            rows,
+            setRows,
+            confirmMessage: '削除しますか？',
+            updateRow: r => r.productId === productId ? {...r, isVisible: 0} : r,
+            request: () =>
+                fetch(`${urls.products}/${productId}/softDelete`,{
+                    method: 'PATCH'
+                })
         });
     };
 

@@ -2,29 +2,35 @@
 import { useState, useEffect } from 'react';
 import DeleteButton from '../common/DeleteButton';
 import urls from '../../../urls/urls'
+import softDelete from '../../../utils/softDelete';
 
 export default function WarehouseMaster() {
     //springのapi/master/warehousesからデータを吸い出している
     const [rows, setRows] = useState([]);
     useEffect(() => {
         const load = async () => {
-            const a = await fetch(urls.warehouses);
-            const body = await a.json();
-            setRows(body);
+            try {
+                const a = await fetch(urls.warehouses);
+                const body = await a.json();
+                setRows(body);
+            } catch (error) {
+                console.error('情報の取得に失敗しました：', error);
+            }
         };
         load();
     }, []);
 
     // 削除ボタンで呼ぶ処理
-    const handleDelete = async (warehouseId) => {
-        // まず画面上の表示を更新
-        setRows(rows =>
-            rows.map(r => r.warehouseId === warehouseId ? { ...r, isVisible: 0 } : r)
-        );
-
-        // Spring側のPATCH APIを叩く
-        await fetch(`${urls.warehouses}/${warehouseId}/softDelete`, {
-            method: 'PATCH'
+    const handleDelete =  (warehouseId) => {
+        softDelete({
+            id: warehouseId,
+            rows,
+            setRows,
+            confirmMessage: '本当に削除しますか？',
+            request: (id) =>
+                fetch(`${urls.warehouses}/${id}/softDelete`, {
+                    method: 'PATCH'
+                })
         });
     };
 

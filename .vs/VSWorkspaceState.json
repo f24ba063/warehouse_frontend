@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\css",
-    "\\src\\data",
     "\\src\\pages",
     "\\src\\pages\\Master",
     "\\src\\pages\\Master\\LocationMaster",
     "\\src\\pages\\Master\\PartnerMaster",
+    "\\src\\pages\\Master\\ProductMaster",
     "\\src\\router",
-    "\\src\\urls"
+    "\\src\\urls",
+    "\\src\\utils"
   ],
-  "SelectedNode": "\\src\\pages\\Master\\LocationMaster\\LocationMaster.jsx",
+  "SelectedNode": "\\src\\pages\\Master\\PartnerMaster\\PartnerMasterPage.jsx",
   "PreviewInSolutionExplorer": false
 }

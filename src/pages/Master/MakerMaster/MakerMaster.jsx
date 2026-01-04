@@ -8,15 +8,20 @@ export default function MakerMaster() {
     const [rows, setRows] = useState([]);
     useEffect(() => {
         const load = async () => {
-            const a = await fetch(urls.makers);
-            const body = await a.json();
-            setRows(body);
+            try {
+                const a = await fetch(urls.makers);
+                const body = await a.json();
+                setRows(body);
+            } catch (error) {
+                console.error('情報の取得に失敗しました：', error);
+            }
         };
         load();
     }, []);
 
     // 削除ボタンで呼ぶ処理
     const handleDelete = async (makerId) => {
+        if (confirm('本当に削除しますか?'))
         // まず画面上の表示を更新
         setRows(rows =>
             rows.map(r => r.makerId === makerId ? { ...r, isVisible: 0 } : r)

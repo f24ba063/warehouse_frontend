@@ -2,31 +2,35 @@
 import { useState, useEffect } from 'react';
 import DeleteButton from '../common/DeleteButton';
 import urls from '../../../urls/urls'
+import softDelete from '../../../utils/softDelete';
 
 export default function LocationMaster() {
 
     const [rows, setRows] = useState([]);
     useEffect(() => {
         const load = async () => {
-            const a = await fetch(urls.locations);
-            const body = await a.json();
-            setRows(body);
+            try {
+                const a = await fetch(urls.locations);
+                const body = await a.json();
+                setRows(body);
+            } catch (error) {
+                console.error('情報の取得に失敗しました：', error);
+            }
         };
         load();
     }, []);
 
     // 削除ボタンで呼ぶ処理
-    const handleDelete = async (locationCode) => {
-        setRows(rows =>
-            rows.map(r =>
-                r.locationCode === locationCode
-                    ? { ...r, isVisible: 0 }
-                    : r
-            )
-        );
-
-        await fetch(`${urls.locations}/${locationCode}/softDelete`, {
-            method: 'PATCH'
+    const handleDelete = (locationCode) => {
+        softDelete({
+            rows,
+            setRows,
+            confirmMessage: '削除しますか？',
+            updateRow: r => r.locationId === locationCode ? {...r, isVisible: 0} : r,
+            request: () =>
+                fetch(`${urls.locations}/${locationCode}/softDelete`,{
+                    method: 'PATCH'
+                })
         });
     };
 
