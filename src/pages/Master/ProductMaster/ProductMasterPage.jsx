@@ -38,11 +38,8 @@ export default function ProductMasterPage() {
     };
 
     //新商品を商品リストに追加する
-    const productUpdate = e => {
-        setProducts(prev => [
-            ...prev,
-            product
-        ]);
+    const productUpdate = () => {
+        setProducts(prev => [ ...prev, product ]);
     }
 
     return (
@@ -50,7 +47,7 @@ export default function ProductMasterPage() {
         <div>
             <h2>商品マスター</h2>
             <button onClick={() =>
-                setShowForm(!showForm)}>新商品登録加</button>
+                setShowForm(!showForm)}>新商品登録</button>
 
                 {showForm &&
 
@@ -103,7 +100,9 @@ export default function ProductMasterPage() {
                             onChange={handleChange}
                         />
 
-                        <button onClick={() =>productUpdate(product) }>登録確定</button>
+                        <button type="button"
+                            onClick={productUpdate}>登録確定</button>
+
                     </form>
                 }
         </div >
