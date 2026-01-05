@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\qurpe\\Desktop\\github\\warehouse_frontend\\src\\pages\\Master\\PartnerMaster\\PartnerMasterPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Master\\PartnerMaster\\PartnerMasterPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\qurpe\\Desktop\\github\\warehouse_frontend\\src\\router\\AppRouter.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\router\\AppRouter.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -26,7 +30,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "urls.jsx",
               "DocumentMoniker": "C:\\Users\\qurpe\\Desktop\\github\\warehouse_frontend\\src\\urls\\urls.jsx",
               "RelativeDocumentMoniker": "src\\urls\\urls.jsx",
@@ -45,20 +49,33 @@
               "RelativeDocumentMoniker": "src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
               "ToolTip": "C:\\Users\\qurpe\\Desktop\\github\\warehouse_frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
               "RelativeToolTip": "src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAUwF0AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAIwFUAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-12-25T14:57:36.849Z",
+              "WhenOpened": "2026-01-04T14:36:46.827Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PartnerMasterPage.jsx",
+              "DocumentMoniker": "C:\\Users\\qurpe\\Desktop\\github\\warehouse_frontend\\src\\pages\\Master\\PartnerMaster\\PartnerMasterPage.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Master\\PartnerMaster\\PartnerMasterPage.jsx",
+              "ToolTip": "C:\\Users\\qurpe\\Desktop\\github\\warehouse_frontend\\src\\pages\\Master\\PartnerMaster\\PartnerMasterPage.jsx",
+              "RelativeToolTip": "src\\pages\\Master\\PartnerMaster\\PartnerMasterPage.jsx",
+              "ViewState": "AgIAACcAAAAAAAAAAAAIwEwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-04T14:36:55.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AppRouter.jsx",
               "DocumentMoniker": "C:\\Users\\qurpe\\Desktop\\github\\warehouse_frontend\\src\\router\\AppRouter.jsx",
               "RelativeDocumentMoniker": "src\\router\\AppRouter.jsx",
               "ToolTip": "C:\\Users\\qurpe\\Desktop\\github\\warehouse_frontend\\src\\router\\AppRouter.jsx",
               "RelativeToolTip": "src\\router\\AppRouter.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-12-24T12:59:35.462Z",
               "EditorCaption": ""

@@ -46,66 +46,7 @@ export default function ProductMasterPage() {
         <>
         <div>
             <h2>商品マスター</h2>
-            <button onClick={() =>
-                setShowForm(!showForm)}>新商品登録</button>
 
-                {showForm &&
-
-                    <form onSubmit={handleSubmit}>
-                        <label>商品名：</label>
-                        <input
-                            type="text"
-                            name="productName"
-                            value={product.productName}
-                            onChange={handleChange}
-                        />
-
-                        <label>メーカー：</label>
-                        <input
-                            type="text"
-                            name="makerName"
-                            value={product.makerName}
-                            onChange={handleChange}
-                        />
-
-                        <label>重量単位：</label>
-                        <input
-                            type="text"
-                            name="unitOfMeasure"
-                            value={product.unitOfMeasure}
-                            onChange={handleChange}
-                        />
-
-                        <label>安全在庫数：</label>
-                        <input
-                            type="text"
-                            name="safetyStock"
-                            value={product.safetyStock}
-                            onChange={handleChange}
-                        />
-
-                        <label>最小発注数数：</label>
-                        <input
-                            type="text"
-                            name="minOrderQty"
-                            value={product.minOrderQty}
-                            onChange={handleChange}
-                        />
-
-                        <label>ロット管理：</label>
-                        <input
-                            type="checkbox"
-                            name="lotManaged"
-                            checked={product.lotManaged}
-                            onChange={handleChange}
-                        />
-
-                        <button type="button"
-                            onClick={productUpdate}>登録確定</button>
-
-                    </form>
-                }
-        </div >
             <ProductMasterHeader />
             <ProductMaster />
         </>
