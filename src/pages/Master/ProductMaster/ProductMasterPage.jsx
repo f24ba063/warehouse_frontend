@@ -4,14 +4,22 @@ import { useState,useEffect } from 'react';
 import softDelete from '../../../utils/softDelete';
 import urls from '../../../urls/urls';
 
+//Master本体では削除ボタン、編集ボタンの押下を制御しています
+
 export default function ProductMasterPage() {
-    //新商品登録フォームを見せたり隠したりする
+    //新商品登録フォームを見せたり隠したりするトグル
     const [showForm, setShowForm] = useState(false);
 
     //DBからfetchした商品情報群を収める
     const [products, setProducts] = useState([]);
 
-    //個々の商品についての追加・修正のためのプロパティ
+    //商品名検索のための文字列
+    const [searchName, setSearchName] = useState('');
+
+    //既存商品の編集のためのstate
+    const [ieEditing, setIsEditing] = useState(false);;
+
+    //新商品登録・編集用のインスタンス
     const [editingProduct, setEditingProduct] = useState({
         productName: '',
         makerName: '',
@@ -21,6 +29,7 @@ export default function ProductMasterPage() {
         lotManaged: true
     });
 
+    //DBから商品データを引っ張って、stateに収めている
     useEffect(() => {
     fetch("http://localhost:8080/api/master/products")
         .then(res => res.json())
@@ -76,8 +85,12 @@ export default function ProductMasterPage() {
             safetyStock: 0,
             minOrderQty: 0,
             lotManaged: true
-        })
+        });
     }
+
+    const filteredProducts = products.filter(p =>
+        p.productName.includes(searchName)
+    );
 
     return (
         <>
@@ -88,8 +101,10 @@ export default function ProductMasterPage() {
                     handleChange={handleChange}
                     showForm={showForm}
                     setShowForm={setShowForm}
-                    handleSubmit={handleSubmit}                />
-                <ProductMaster products={products} onDelete={handleDelete } />
+                    handleSubmit={handleSubmit}
+                    searchName={searchName}
+                    setSearchName={setSearchName }                />
+                <ProductMaster products={filteredProducts} onDelete={handleDelete } />
             </div>
         </>
     )

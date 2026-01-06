@@ -1,7 +1,8 @@
 ﻿import '../../../css/warehouse_in_out.css';
 import DeleteButton from '../common/DeleteButton';
+import EditButton from '../common/EditButton';
 
-export default function ProductMaster({products, onDelete }) {
+export default function ProductMaster({products, onDelete, onEdit }) {
 
 
     return (
@@ -17,6 +18,7 @@ export default function ProductMaster({products, onDelete }) {
                         <th>最小発注数</th>
                         <th>ロット管理</th>
                         <th>発売フラグ</th>
+                        <th>編集</th>
                         <th>削除</th>
                     </tr>
                 </thead>
@@ -32,7 +34,10 @@ export default function ProductMaster({products, onDelete }) {
                             <td>{res.safetyStock}</td>
                             <td>{res.minOrderQty}</td>
                             <td>{res.lotManaged? 'ロット管理あり' : '-'}</td>
-                            <td>{res.active? '取り扱い中' : '-'}</td>
+                            <td>{res.active ? '取り扱い中' : '-'}</td>
+                            <td>
+                                <EditButton onClick={() => onEdit(res.productId)} />
+                            </td>
                             <td>
                                 <DeleteButton onClick={() => onDelete(res.productId)} />
                             </td>

@@ -4,10 +4,11 @@
     "\\src",
     "\\src\\pages",
     "\\src\\pages\\Master",
+    "\\src\\pages\\Master\\ProductMaster",
     "\\src\\router",
     "\\src\\urls",
     "\\src\\utils"
   ],
-  "SelectedNode": "\\src\\utils\\softDelete.jsx",
+  "SelectedNode": "\\src\\pages\\Master\\ProductMaster\\ProductMasterHeader.jsx",
   "PreviewInSolutionExplorer": false
 }
