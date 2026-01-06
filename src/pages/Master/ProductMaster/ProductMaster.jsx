@@ -31,13 +31,14 @@ export default function ProductMaster({products, onDelete }) {
                             <td>{res.unitOfMeasure}</td>
                             <td>{res.safetyStock}</td>
                             <td>{res.minOrderQty}</td>
-                            <td>{res.lotManaged}</td>
-                            <td>{res.active}</td>
+                            <td>{res.lotManaged? 'ロット管理あり' : '-'}</td>
+                            <td>{res.active? '取り扱い中' : '-'}</td>
                             <td>
                                 <DeleteButton onClick={() => onDelete(res.productId)} />
                             </td>
                         </tr>
-                    ))}
+                        ))
+                    }
                 </tbody>
             </table>
         </>
