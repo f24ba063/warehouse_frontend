@@ -11,6 +11,12 @@ export default function ProductMasterPage() {
     //DBからfetchした商品情報群を収める
     const [products, setProducts] = useState([]);
 
+    //現在新規商品登録中か、既存情報の編集中かを識別するフラグ
+    const [isEditing, setIsEditing] = useState(false);
+
+    //編集中のidを受けるstate
+    const [editingId, setEditingId] = useState(null);
+
     //個々の商品についての追加・修正のためのプロパティ
     const [editingProduct, setEditingProduct] = useState({
         productName: '',
@@ -53,6 +59,14 @@ export default function ProductMasterPage() {
         });
     };
 
+    //既存の商品情報の再編集を開始する関数
+    const handleEditStart = product => {
+        setEditingProduct(product);
+        setIsEditing(true);
+        setShowForm(true);
+        setEditingId(product.productId);
+    }
+
     //ProductMasterHeaderで新商品を登録した際、それをDBに流し込む
     const handleSubmit = async e => {
         e.preventDefault();//不要な再読み込みを阻止
@@ -89,7 +103,10 @@ export default function ProductMasterPage() {
                     showForm={showForm}
                     setShowForm={setShowForm}
                     handleSubmit={handleSubmit}                />
-                <ProductMaster products={products} onDelete={handleDelete } />
+                <ProductMaster
+                    products={products}
+                    onDelete={handleDelete}
+                    onEdit={handleEditStart} />
             </div>
         </>
     )

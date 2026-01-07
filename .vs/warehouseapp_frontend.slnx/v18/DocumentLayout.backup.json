@@ -7,8 +7,16 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterHeader.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Master\\ProductMaster\\ProductMasterHeader.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\pages\\Master\\ProductMaster\\ProductMaster.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Master\\ProductMaster\\ProductMaster.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\utils\\softDelete.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\utils\\softDelete.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,24 +38,50 @@
               "Title": "ProductMasterPage.jsx",
               "DocumentMoniker": "C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
               "RelativeDocumentMoniker": "src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
-              "ToolTip": "C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
-              "RelativeToolTip": "src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
-              "ViewState": "AgIAABEAAAAAAAAAAADwvxgAAAAQAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx*",
+              "RelativeToolTip": "src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx*",
+              "ViewState": "AgIAAB0AAAAAAAAAAADwvzgAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2026-01-05T03:34:37.848Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductMaster.jsx",
               "DocumentMoniker": "C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\pages\\Master\\ProductMaster\\ProductMaster.jsx",
               "RelativeDocumentMoniker": "src\\pages\\Master\\ProductMaster\\ProductMaster.jsx",
               "ToolTip": "C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\pages\\Master\\ProductMaster\\ProductMaster.jsx",
               "RelativeToolTip": "src\\pages\\Master\\ProductMaster\\ProductMaster.jsx",
-              "ViewState": "AgIAABcAAAAAAAAAAADwvx0AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2026-01-05T03:15:00.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductMasterHeader.jsx",
+              "DocumentMoniker": "C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterHeader.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Master\\ProductMaster\\ProductMasterHeader.jsx",
+              "ToolTip": "C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterHeader.jsx",
+              "RelativeToolTip": "src\\pages\\Master\\ProductMaster\\ProductMasterHeader.jsx",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvw0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-05T23:53:28.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "softDelete.jsx",
+              "DocumentMoniker": "C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\utils\\softDelete.jsx",
+              "RelativeDocumentMoniker": "src\\utils\\softDelete.jsx",
+              "ToolTip": "C:\\Users\\tjk037_\\Desktop\\git\\warehouseapp_frontend\\src\\utils\\softDelete.jsx",
+              "RelativeToolTip": "src\\utils\\softDelete.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-06T04:47:10.128Z",
               "EditorCaption": ""
             }
           ]

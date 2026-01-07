@@ -14,7 +14,11 @@ export default function ProductMasterHeader({
             <button type="button" onClick={() => setShowForm(!showForm)}>
                 新商品追加
             </button>
+            <button type="button" onClick={() => setShowForm(!showForm)}>
+                商品編集
+            </button>
 
+            
             {showForm &&(
 
                 <form onSubmit={handleSubmit}>
