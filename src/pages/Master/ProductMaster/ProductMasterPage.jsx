@@ -18,12 +18,6 @@ export default function ProductMasterPage() {
     //DBからfetchした商品情報群を収めるState
     const [products, setProducts] = useState([]);
 
-    //現在新規商品登録中か、既存情報の編集中かを識別するフラグ
-    const [isEditing, setIsEditing] = useState(false);
-
-    //編集中のidを収めるstate
-    const [editingId, setEditingId] = useState(null);
-
     //検索キーワードを受け取るstate
     const [keyWord, setKeyWord] = useState('');
 
@@ -67,14 +61,6 @@ export default function ProductMasterPage() {
                 })
         });
     };
-
-    //既存の商品情報の再編集を開始する関数
-    const handleEditStart = product => {
-        setEditingProduct(product);
-        setIsEditing(true);
-        setShowForm(true);
-        setEditingId(product.productId);
-    }
 
     //ProductMasterHeaderで新商品を登録した際、それをDBに流し込む
     const handleSubmit = async e => {
@@ -148,7 +134,43 @@ export default function ProductMasterPage() {
         return null;
     }
 
-    
+    //既存商品の情報の更新
+    const handleUpdate = async(updatedProduct) => {
+        const error = validateProduct(
+            updatedProduct,
+            products,
+            updatedProduct.productId
+        );
+
+        if (error) {
+            alert(error);
+            return false;
+        }
+
+        const res = await fetch(
+            `${urls.products}/${updatedProduct.productId}`,
+            {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedProduct)
+            }
+        );
+
+        if (!res.ok) {
+            alert('更新に失敗しました');
+            return false;
+        }
+
+        const saved = await res.json();
+
+        setProducts(prev =>
+            prev.map(p =>
+                p.productId === saved.productId ? saved : p
+            )
+        );
+
+        return true;
+    }
 
     return (
         <>
@@ -161,13 +183,13 @@ export default function ProductMasterPage() {
                     showForm={showForm}/*商品登録フォームを見せたり隠すState */
                     setShowForm={setShowForm}/*上のStateを操作する*/
                     handleSubmit={handleSubmit} /*商品登録確定機能 */
-                    keyWOrd={keyWord}
+                    keyWord={keyWord}
                     setKeyWord={setKeyWord}
                 /> 
                 <ProductMaster
                     products={products}
                     onDelete={handleDelete}
-                    onEdit={handleEditStart}
+                    onUpdate={handleUpdate}
                     keyWord={keyWord}                />
             </div>
         </>

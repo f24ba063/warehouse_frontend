@@ -1,14 +1,9 @@
-﻿import ProductRow from './ProductMasterRow';
+﻿import ProductMasterRow from './ProductMasterRow';
 
 export default function ProductMaster({
     products,
     onDelete,
-    onEdit,
-    editingId,
-    editingProduct,
-    setEditingProduct,
-    handleUpdate,
-    handleEditCancel,
+    onUpdate,
     keyWord
 }) {
     return (
@@ -32,16 +27,11 @@ export default function ProductMaster({
                     .filter(r => r.isVisible === 1)
                     .filter(r => keyWord === '' || r.productName.includes(keyWord))
                     .map(r => (
-                        <ProductRow
+                        <ProductMasterRow
                             key={r.productId}
                             row={r}
-                            onEdit={onEdit}
                             onDelete={onDelete}
-                            editingId={editingId}
-                            editingProduct={editingProduct}
-                            setEditingProduct={setEditingProduct}
-                            handleUpdate={handleUpdate}
-                            handleEditCancel={handleEditCancel}
+                            onUpdate={onUpdate}
                         />
                     ))}
             </tbody>

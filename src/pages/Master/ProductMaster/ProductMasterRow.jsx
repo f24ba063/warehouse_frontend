@@ -1,123 +1,153 @@
 ﻿import DeleteButton from '../common/DeleteButton';
+import { useState } from 'react';
 
 export default function ProductMasterRow({
-    row,
-    onEdit,
-    onDelete,
-    editingId,
-    editingProduct,
-    setEditingProduct,
-    handleUpdate,
-    handleEditCancel
+    row,        //レコード一行分の情報
+    onEdit,     //
+    onDelete,   //
+    onUpdate    
 }) {
-    const isEditing = editingId === row.productId;
+    const [isEditing, setIsEditing] = useState(false);//編集モード
+    const [localProduct, setLocalProduct] = useState(null);//編集中の元データの避難先
+
+    //編集開始ボタン。編集対象レコードの元レコードを退避
+    const handleEditStart = () => {
+        setIsEditing(true);
+        setLocalProduct({ ...row });
+    }
+
+    //入力変更
+    const handleChange = e => {
+        const { name, value, type, checked } = e.target;
+        setLocalProduct({
+            ...localProduct,
+            [name]: type === 'checkbox' ? checked : value
+        });
+    };
+
+    const handleFinish = async () => {
+        if (!window.confirm('編集を確定しますか？')) return;
+
+        const ok = await onUpdate(localProduct);
+        if (ok) {
+            setIsEditing(false);
+            setLocalProduct(null);
+        }
+    };
+
+    const handleCancel = () => {
+        setIsEditing(false);
+        setLocalProduct(null);
+    }
 
     return (
         <tr>
-            {isEditing ? (
-                <>
-                    <td>{row.productId}</td>
-                    <td>
-                        <input
-                            value={editingProduct.productName}
-                            onChange={e =>
-                                setEditingProduct({
-                                    ...editingProduct,
-                                    productName: e.target.value
-                                })
-                            }
-                        />
-                    </td>
-                    <td>
-                        <input
-                            value={editingProduct.makerName}
-                            onChange={e =>
-                                setEditingProduct({
-                                    ...editingProduct,
-                                    makerName: e.target.value
-                                })
-                            }
-                        />
-                    </td>
-                    <td>
-                        <input
-                            value={editingProduct.unitOfMeasure}
-                            onChange={e =>
-                                setEditingProduct({
-                                    ...editingProduct,
-                                    unitOfMeasure: e.target.value
-                                })
-                            }
-                        />
-                    </td>
-                    <td>
-                        <input
-                            type="number"
-                            value={editingProduct.safetyStock}
-                            onChange={e =>
-                                setEditingProduct({
-                                    ...editingProduct,
-                                    safetyStock: Number(e.trget.value)
-                                })    
-                            }
-                        />
-                    </td>
-                    <td>
-                        <input
-                            type="number"
-                            value={editingProduct.minOrderQty}
-                            onChange={e =>
-                                setEditingProduct({
-                                    ...editingProduct,
-                                    minOrderQty: Number(e.target.value)
-                                })    
-                            }
-                        />
-                    </td>
-                    <td>
-                        <input
-                            type="checkbox"
-                            value={editingProduct.lotManaged}
-                            onChange={e =>
-                                setEditingProduct({
-                                    ...editingProduct,
-                                    lotManaged: e.target.checked
-                                })
-                            }
-                        />
-                    </td>
-                    <td>
-                        <button type="button" onClick={handleUpdate}>
-                            保存
-                        </button>
-                        <button type="button" onClick={handleEditCancel}>
-                            キャンセル
-                        </button>
-                    </td>
-                    <td>
-                        <DeleteButton onClick={() => onDelete(row.productId) } />
-                    </td>
-                </>
-            ) : (
-                <>
-                    <td>{row.productId}</td>
-                    <td>{row.productName}</td>
-                    <td>{row.makerName}</td>
-                    <td>{row.unitOfMeasure}</td>
-                    <td>{row.safetyStock}</td>
-                    <td>{row.minOrderQty}</td>
-                    <td>{row.lotManaged ? 'ロット管理あり' : '-'}</td>
-                    <td>{row.active ? '取り扱い中' : '-'}</td>
-                    <td>
-                        <button type="button" onClick={() => onEdit(row)}>
-                            編集
-                        </button>
-                    </td>
-                    <td>
-                        <DeleteButton onClick={() => onDelete(row.productId)} />
-                    </td>
-                </>
-            )}
+            <td>{row.productId}</td>
+
+            <td>
+                {isEditing ? (
+                    <input
+                        name='productName'
+                        value={localProduct.productName}
+                        onChange={handleChange}
+                    />
+                ) : (
+                    row.productName
+                )}
+            </td>
+
+            <td>
+                {isEditing ? (
+                    <input
+                        name="makerName"
+                        value={localProduct.makerName}
+                        onChange={handleChange}
+                    />
+                ) : (
+                    row.makerName
+                )}
+            </td>
+
+            <td>
+                {isEditing ? (
+                    <input
+                        name="unitOfMeasure"
+                        value={localProduct.unitOfMeasure}
+                        onChange={handleChange}
+                    />
+                ) : (
+                    row.unitOfMeasure
+                )}
+            </td>
+
+            <td>
+                {isEditing ? (
+                    <input
+                        type="number"
+                        name="safetyStock"
+                        value={localProduct.safetyStock}
+                        onChange={handleChange}
+                    />
+                ) : (
+                    row.safetyStock
+                )}
+            </td>
+
+            <td>
+                {isEditing ? (
+                    <input
+                        type="number"
+                        name="minOrderQty"
+                        value={localProduct.minOrderQty}
+                        onChange={handleChange}
+                    />
+                ) : (
+                    row.minOrderQty
+                )}
+            </td>
+
+            <td>
+                {isEditing ? (
+                    <input
+                        type="checkbox"
+                        name="lotManaged"
+                        checked={localProduct.lotManaged}
+                        onChange={handleChange}
+                    />
+                ) : (
+                        row.lotManaged ? 'ロット管理あり' : '-'
+                )}
+            </td>
+
+            <td>
+                {isEditing ? (
+                    <input
+                        type="checkbox"
+                        name="active"
+                        checked={localProduct.active}
+                        onChange={handleChange}
+                    />
+                ) : (
+                        row.active ? '取り扱い中' : '-'
+                )}
+            </td>
+
+            <td>
+                {isEditing ? (
+                    <>
+                        <button onClick={handleFinish}>編集終了</button>
+                        <button onClick={handleCancel}>取消</button>
+                    </>
+                ) : (
+                        <button onClick={handleEditStart}>編集</button>
+                )}
+            </td>
+
+            <td>
+                {!isEditing && (
+                    <button onClick={() => onDelete(row.productId)}>削除</button>
+                ) }
+            </td>
         </tr>
     );
 }
