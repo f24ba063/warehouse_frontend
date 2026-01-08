@@ -1,10 +1,11 @@
 ﻿
 export default function ProductMasterHeader({
-    editingProduct,
-    handleChange,//入力を表示に反映
-    showForm,//新商品追加フォームの表示フラグ
-    setShowForm,//フォーム表示切替関数
-    handleSubmit//DB登録用関数
+    editingProduct, //商品登録に使うState
+    handleChange,   //入力を表示に反映する機能
+    showForm,       //新商品追加フォームの表示フラグ
+    setShowForm,    //新商品登録フォーム表示切替関数
+    handleSubmit,   //DB登録機能
+    setKeyWord      //keyWordに代入
 }) {
 
     return (
@@ -14,11 +15,18 @@ export default function ProductMasterHeader({
             <button type="button" onClick={() => setShowForm(!showForm)}>
                 新商品追加
             </button>
-            <button type="button" onClick={() => setShowForm(!showForm)}>
-                商品編集
+            <label>商品検索</label>
+            <input type="text" id="searchInput" placeohlder="商品入力" />
+            <button
+                type="button"
+                onClick={() => {
+                    const val = document.getElementById('searchInput').value;
+                    setKeyWord(val);
+                }}>
+                検索
             </button>
 
-            
+            {/*以下は新商品入力フォーム。初期は隠されている*/}
             {showForm &&(
 
                 <form onSubmit={handleSubmit}>
@@ -72,8 +80,9 @@ export default function ProductMasterHeader({
 
                     <button type="submit">登録確定</button>
 
-                </form>
-           ) }
+                </form> 
+            )}
+            {/*新商品入力フォーム終了*/}
         </>
     )
 }
