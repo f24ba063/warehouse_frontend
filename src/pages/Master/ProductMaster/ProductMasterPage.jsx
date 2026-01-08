@@ -4,22 +4,20 @@ import { useState,useEffect } from 'react';
 import softDelete from '../../../utils/softDelete';
 import urls from '../../../urls/urls';
 
-//Master本体では削除ボタン、編集ボタンの押下を制御しています
-
 export default function ProductMasterPage() {
-    //新商品登録フォームを見せたり隠したりするトグル
+    //新商品登録フォームを見せたり隠したりする
     const [showForm, setShowForm] = useState(false);
 
     //DBからfetchした商品情報群を収める
     const [products, setProducts] = useState([]);
 
-    //商品名検索のための文字列
-    const [searchName, setSearchName] = useState('');
+    //現在新規商品登録中か、既存情報の編集中かを識別するフラグ
+    const [isEditing, setIsEditing] = useState(false);
 
-    //既存商品の編集のためのstate
-    const [ieEditing, setIsEditing] = useState(false);;
+    //編集中のidを受けるstate
+    const [editingId, setEditingId] = useState(null);
 
-    //新商品登録・編集用のインスタンス
+    //個々の商品についての追加・修正のためのプロパティ
     const [editingProduct, setEditingProduct] = useState({
         productName: '',
         makerName: '',
@@ -29,7 +27,6 @@ export default function ProductMasterPage() {
         lotManaged: true
     });
 
-    //DBから商品データを引っ張って、stateに収めている
     useEffect(() => {
     fetch("http://localhost:8080/api/master/products")
         .then(res => res.json())
@@ -62,6 +59,14 @@ export default function ProductMasterPage() {
         });
     };
 
+    //既存の商品情報の再編集を開始する関数
+    const handleEditStart = product => {
+        setEditingProduct(product);
+        setIsEditing(true);
+        setShowForm(true);
+        setEditingId(product.productId);
+    }
+
     //ProductMasterHeaderで新商品を登録した際、それをDBに流し込む
     const handleSubmit = async e => {
         e.preventDefault();//不要な再読み込みを阻止
@@ -85,12 +90,8 @@ export default function ProductMasterPage() {
             safetyStock: 0,
             minOrderQty: 0,
             lotManaged: true
-        });
+        })
     }
-
-    const filteredProducts = products.filter(p =>
-        p.productName.includes(searchName)
-    );
 
     return (
         <>
@@ -101,10 +102,11 @@ export default function ProductMasterPage() {
                     handleChange={handleChange}
                     showForm={showForm}
                     setShowForm={setShowForm}
-                    handleSubmit={handleSubmit}
-                    searchName={searchName}
-                    setSearchName={setSearchName }                />
-                <ProductMaster products={filteredProducts} onDelete={handleDelete } />
+                    handleSubmit={handleSubmit}                />
+                <ProductMaster
+                    products={products}
+                    onDelete={handleDelete}
+                    onEdit={handleEditStart} />
             </div>
         </>
     )
