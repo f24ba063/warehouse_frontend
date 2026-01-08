@@ -4,18 +4,28 @@ import { useState,useEffect } from 'react';
 import softDelete from '../../../utils/softDelete';
 import urls from '../../../urls/urls';
 
+//ここには以下の機能が収められている
+//①新商品追加フォームの文字入力を表示に反映する機能
+//②商品のソフトデリート機能
+//③既存商品の編集機能
+//④新商品登録を決定した際、DBへのデータ保存とブラウザ表示への反映
+//⑤
+
 export default function ProductMasterPage() {
-    //新商品登録フォームを見せたり隠したりする
+    //新商品登録フォームを見せたり隠したりするフラグ
     const [showForm, setShowForm] = useState(false);
 
-    //DBからfetchした商品情報群を収める
+    //DBからfetchした商品情報群を収めるState
     const [products, setProducts] = useState([]);
 
     //現在新規商品登録中か、既存情報の編集中かを識別するフラグ
     const [isEditing, setIsEditing] = useState(false);
 
-    //編集中のidを受けるstate
+    //編集中のidを収めるstate
     const [editingId, setEditingId] = useState(null);
+
+    //検索キーワードを受け取るstate
+    const [keyWord, setKeyWord] = useState('');
 
     //個々の商品についての追加・修正のためのプロパティ
     const [editingProduct, setEditingProduct] = useState({
@@ -34,7 +44,7 @@ export default function ProductMasterPage() {
     }, []);
 
 
-    //登録フォームに文字を打ち込むたび、表示内容が更新される
+    //新商品追加フォームに文字を打ち込むたび、表示内容が更新される
     const handleChange = e => {
         const { name, value, type, checked } = e.target;
 
@@ -44,9 +54,8 @@ export default function ProductMasterPage() {
         });
     };
 
-
     //商品のソフトデリート（不可視属性付与）
-    const handleDelete = (productId) => {
+    const handleDelete = productId => {
         softDelete({//utilsからSoftDelete関数を引っ張ってきている
             rows: products,
             setRows: setProducts,
@@ -97,16 +106,21 @@ export default function ProductMasterPage() {
         <>
             <div>
                 <h2>商品マスター</h2>
+                {/*ヘッダーには新商品登録機能と検索機能*/}
                 <ProductMasterHeader
-                    editingProduct={editingProduct}
-                    handleChange={handleChange}
-                    showForm={showForm}
-                    setShowForm={setShowForm}
-                    handleSubmit={handleSubmit}                />
+                    editingProduct={editingProduct}/*商品登録用のオブジェクト*/
+                    handleChange={handleChange}/*入力すると表示もかわる機能*/
+                    showForm={showForm}/*商品登録フォームを見せたり隠すState */
+                    setShowForm={setShowForm}/*上のStateを操作する*/
+                    handleSubmit={handleSubmit} /*商品登録確定機能 */
+                    keyWOrd={keyWord}
+                    setKeyWord={setKeyWord}
+                /> 
                 <ProductMaster
                     products={products}
                     onDelete={handleDelete}
-                    onEdit={handleEditStart} />
+                    onEdit={handleEditStart}
+                    keyWord={keyWord}                />
             </div>
         </>
     )

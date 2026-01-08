@@ -8,7 +8,8 @@ export default function ProductMaster({
     editingProduct,
     setEditingProduct,
     handleUpdate,
-    handleEditCancel
+    handleEditCancel,
+    keyWord
 }) {
     return (
         <table>
@@ -29,6 +30,7 @@ export default function ProductMaster({
             <tbody>
                 {products
                     .filter(r => r.isVisible === 1)
+                    .filter(r => keyWord === '' || r.productName.includes(keyWord))
                     .map(r => (
                         <ProductRow
                             key={r.productId}
@@ -44,5 +46,5 @@ export default function ProductMaster({
                     ))}
             </tbody>
         </table>
-    );
+    )
 }
