@@ -3,8 +3,7 @@
     "",
     "\\src",
     "\\src\\pages",
-    "\\src\\pages\\Master",
-    "\\src\\pages\\Master\\ProductMaster"
+    "\\src\\pages\\Master"
   ],
   "PreviewInSolutionExplorer": false
 }

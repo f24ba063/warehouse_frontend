@@ -79,6 +79,14 @@ export default function ProductMasterPage() {
     //ProductMasterHeaderで新商品を登録した際、それをDBに流し込む
     const handleSubmit = async e => {
         e.preventDefault();//不要な再読み込みを阻止
+
+        //商品名、安全在庫、最小発注数バリデーション
+        const error = validateProduct(editingProduct, products);
+
+        if (error) {
+            alert(error);
+            return;
+        }
         //以下でDBにデータをPOSTする
         const res = await fetch("http://localhost:8080/api/master/products", {
             method: 'POST',
@@ -101,6 +109,46 @@ export default function ProductMasterPage() {
             lotManaged: true
         })
     }
+
+    //商品名空白・名前かぶり・安全在庫・最小発注数に関しての警告
+    const validateProduct = (product, products, editingId = null) => {
+        //名前空白
+        if (!product.productName.trim()) {
+            return '商品名は必須です';
+        }
+
+        //他商品との名前かぶりの警告
+        const duplicated = products.some(p =>
+            p.productName === product.productName &&
+            p.productId !== editingId
+        );
+
+        if (duplicated) {
+            return '同じ商品名がすでに存在しています'
+        };
+
+        //安全在庫・空白 or 数字以外 or 0未満
+        if (
+            product.safetyStock === '' ||
+            isNaN(product.safetyStock) ||
+            Number(product.safetyStock) < 0
+        ) {
+            return '安全在庫は0以上の数値で入力してください';
+        }
+
+        //最小発注単位・空白 or 数字以外 or 0未満 
+        if (
+            product.minOrderQty === '' ||
+            isNaN(product.minOrderQty) ||
+            Number(product.minOrderQty) < 0
+        ) {
+            return '最小発注数は0以上の数値で入力してください。'
+        }
+        //問題ない時は何も返さない
+        return null;
+    }
+
+    
 
     return (
         <>
