@@ -1,4 +1,8 @@
 ﻿import DeleteButton from '../common/DeleteButton';
+import { useState } from 'react';
+
+//既存マスターデータを編集する機能についてはここに記述
+//他ファイルでは一切タッチしない
 
 export default function ProductMasterRow({
     row,
@@ -11,6 +15,7 @@ export default function ProductMasterRow({
     handleEditCancel
 }) {
     const isEditing = editingId === row.productId;
+    const {isEditing, setIsEditing }
 
     return (
         <tr>

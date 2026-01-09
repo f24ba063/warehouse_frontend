@@ -7,9 +7,7 @@ import urls from '../../../urls/urls';
 //ここには以下の機能が収められている
 //①新商品追加フォームの文字入力を表示に反映する機能
 //②商品のソフトデリート機能
-//③既存商品の編集機能
-//④新商品登録を決定した際、DBへのデータ保存とブラウザ表示への反映
-//⑤
+//③新商品登録を決定した際、DBへのデータ保存とブラウザ表示への反映
 
 export default function ProductMasterPage() {
     //新商品登録フォームを見せたり隠したりするフラグ
@@ -18,17 +16,11 @@ export default function ProductMasterPage() {
     //DBからfetchした商品情報群を収めるState
     const [products, setProducts] = useState([]);
 
-    //現在新規商品登録中か、既存情報の編集中かを識別するフラグ
-    const [isEditing, setIsEditing] = useState(false);
-
-    //編集中のidを収めるstate
-    const [editingId, setEditingId] = useState(null);
-
     //検索キーワードを受け取るstate
     const [keyWord, setKeyWord] = useState('');
 
-    //個々の商品についての追加・修正のためのプロパティ
-    const [editingProduct, setEditingProduct] = useState({
+    //商品追加のためのプロパティ
+    const [resistratingProduct, setResistratingProduct] = useState({
         productName: '',
         makerName: '',
         unitOfMeasure: '',
@@ -48,8 +40,8 @@ export default function ProductMasterPage() {
     const handleChange = e => {
         const { name, value, type, checked } = e.target;
 
-        setEditingProduct({
-            ...editingProduct,
+        setResistratingProduct({
+            ...resistratingProduct,
             [name]: type === 'checkbox' ? checked : value
         });
     };
@@ -68,13 +60,6 @@ export default function ProductMasterPage() {
         });
     };
 
-    //既存の商品情報の再編集を開始する関数
-    const handleEditStart = product => {
-        setEditingProduct(product);
-        setIsEditing(true);
-        setShowForm(true);
-        setEditingId(product.productId);
-    }
 
     //ProductMasterHeaderで新商品を登録した際、それをDBに流し込む
     const handleSubmit = async e => {
@@ -91,7 +76,7 @@ export default function ProductMasterPage() {
         const res = await fetch("http://localhost:8080/api/master/products", {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(editingProduct)
+            body: JSON.stringify(resistratingProduct)
         });
 
         if (!res.ok) throw new Error('登録失敗');
@@ -100,7 +85,7 @@ export default function ProductMasterPage() {
         const saveProduct = await res.json();
         setProducts(prev => [...prev, saveProduct]);
         setShowForm(false);
-        setEditingProduct({
+        setResistratingProduct({
             productName: '',
             makerName: '',
             unitOfMeasure: '',
@@ -156,7 +141,7 @@ export default function ProductMasterPage() {
                 <h2>商品マスター</h2>
                 {/*ヘッダーには新商品登録機能と検索機能*/}
                 <ProductMasterHeader
-                    editingProduct={editingProduct}/*商品登録用のオブジェクト*/
+                    editingProduct={resistratingProduct}/*商品登録用のオブジェクト*/
                     handleChange={handleChange}/*入力すると表示もかわる機能*/
                     showForm={showForm}/*商品登録フォームを見せたり隠すState */
                     setShowForm={setShowForm}/*上のStateを操作する*/
@@ -167,7 +152,6 @@ export default function ProductMasterPage() {
                 <ProductMaster
                     products={products}
                     onDelete={handleDelete}
-                    onEdit={handleEditStart}
                     keyWord={keyWord}                />
             </div>
         </>
