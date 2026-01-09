@@ -1,6 +1,5 @@
 ﻿
-
-export default function DeleteButton({ onClick, label = "削除" }) {
+export default function EditButton({ onClick, label = "編集" }) {
     return (
         <button type="button" onClick={onClick}>
             {label}
