@@ -1,4 +1,5 @@
 ﻿import ProductMasterRow from './ProductMasterRow';
+import NewProductModal from './NewProductModal'
 
 export default function ProductMaster({
     products,
@@ -15,6 +16,7 @@ export default function ProductMaster({
                     <th>ID</th>
                     <th>商品名</th>
                     <th>メーカー名</th>
+                    <th>カテゴリー</th>
                     <th>重量単位</th>
                     <th>安全在庫</th>
                     <th>最小発注数</th>

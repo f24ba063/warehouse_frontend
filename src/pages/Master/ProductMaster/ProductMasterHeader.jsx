@@ -82,6 +82,14 @@
                         onChange={handleChange}
                     />
 
+                    <label>カテゴリー：</label>
+                    <input
+                        type="text"
+                        name="category"
+                        value={editingProduct.category}
+                        onChange={handleChange}
+                    />
+
                     <label>重量単位：</label>
                     <input
                         type="text"

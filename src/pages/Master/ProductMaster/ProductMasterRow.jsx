@@ -71,6 +71,18 @@ export default function ProductMasterRow({
             <td>
                 {isEditing ? (
                     <input
+                        name="category"
+                        value={localProduct.category}
+                        onChange={handleChange}
+                    />
+                ) : (
+                    row.category
+                )}
+            </td>
+
+            <td>
+                {isEditing ? (
+                    <input
                         name="unitOfMeasure"
                         value={localProduct.unitOfMeasure}
                         onChange={handleChange}

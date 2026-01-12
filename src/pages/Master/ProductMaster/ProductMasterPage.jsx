@@ -105,6 +105,7 @@ export default function ProductMasterPage() {
             productName: '',
             makerName: '',
             unitOfMeasure: '',
+            category: '',
             safetyStock: 0,
             minOrderQty: 0,
             lotManaged: true
@@ -186,16 +187,16 @@ export default function ProductMasterPage() {
                 <h2>商品マスター</h2>
                 {/*ヘッダーには新商品登録機能と検索機能*/}
                 <ProductMasterHeader
-                    editingProduct={editingProduct}/*商品登録用のオブジェクト*/
-                    handleChange={handleChange}/*入力すると表示もかわる機能*/
-                    showForm={showForm}/*商品登録フォームを見せたり隠すState */
-                    setShowForm={setShowForm}/*上のStateを操作する*/
-                    handleSubmit={handleSubmit} /*商品登録確定機能 */
-                    productKeyWord={productKeyWord}
+                    editingProduct={editingProduct} /*商品登録用のオブジェクト*/
+                    handleChange={handleChange}     /*入力すると表示もかわる機能*/
+                    showForm={showForm}             /*商品登録フォームを見せたり隠すState */
+                    setShowForm={setShowForm}       /*上のStateを操作する*/
+                    handleSubmit={handleSubmit}     /*商品登録確定機能 */
+                    productKeyWord={productKeyWord} /*商品検索用キーワード */
                     setProductKeyWord={setProductKeyWord}
                     makerKeyWord={makerKeyWord}
                     setMakerKeyWord={setMakerKeyWord}
-                    setShowDeleted={setShowDeleted}
+                    setShowDeleted={setShowDeleted}/*ソフトデリート済商品閲覧フラグ管理 */
                     showDeleted={showDeleted}
                 /> 
                 <ProductMaster
