@@ -4,7 +4,9 @@ export default function ProductMaster({
     products,
     onDelete,
     onUpdate,
-    keyWord
+    productKeyWord,
+    makerKeyWord,
+    showDeleted
 }) {
     return (
         <table>
@@ -24,8 +26,9 @@ export default function ProductMaster({
             </thead>
             <tbody>
                 {products
-                    .filter(r => r.isVisible === 1)
-                    .filter(r => keyWord === '' || r.productName.includes(keyWord))
+                    .filter(r => productKeyWord === '' || r.productName.includes(productKeyWord))
+                    .filter(r => makerKeyWord === '' || r.makerName.includes(makerKeyWord))
+                    .filter(r => r.isVisible === 1 ||showDeleted)
                     .map(r => (
                         <ProductMasterRow
                             key={r.productId}

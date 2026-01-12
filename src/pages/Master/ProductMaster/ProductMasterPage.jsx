@@ -9,17 +9,24 @@ import urls from '../../../urls/urls';
 //②商品のソフトデリート機能
 //③既存商品の編集機能
 //④新商品登録を決定した際、DBへのデータ保存とブラウザ表示への反映
-//⑤
+//⑤商品検索機能
+//⑥メーカー検索機能
 
 export default function ProductMasterPage() {
     //新商品登録フォームを見せたり隠したりするフラグ
-    const [showForm, setShowForm] = useState(false);
+    const [showForm,setShowForm] = useState(false);
 
     //DBからfetchした商品情報群を収めるState
     const [products, setProducts] = useState([]);
 
-    //検索キーワードを受け取るstate
-    const [keyWord, setKeyWord] = useState('');
+    //商品検索キーワードを受け取るstate
+    const [productKeyWord, setProductKeyWord] = useState('');
+
+    //企業検索キーワードを受け取るstate
+    const [makerKeyWord, setMakerKeyWord] = useState('');
+
+    //削除済要素の可視化制御state
+    const [showDeleted, setShowDeleted] = useState(false);
 
     //個々の商品についての追加・修正のためのプロパティ
     const [editingProduct, setEditingProduct] = useState({
@@ -32,9 +39,17 @@ export default function ProductMasterPage() {
     });
 
     useEffect(() => {
-    fetch("http://localhost:8080/api/master/products")
-        .then(res => res.json())
-        .then(data => setProducts(data));
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch("http://localhost:8080/api/master/products");
+                if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
+                const data = await res.json();
+                setProducts(data);
+            } catch (err) {
+                console.Error(`商品データ取得失敗:`, err);
+            }
+        };
+        fetchProducts();
     }, []);
 
 
@@ -99,9 +114,7 @@ export default function ProductMasterPage() {
     //商品名空白・名前かぶり・安全在庫・最小発注数に関しての警告
     const validateProduct = (product, products, editingId = null) => {
         //名前空白
-        if (!product.productName.trim()) {
-            return '商品名は必須です';
-        }
+        if (!product.productName.trim()) {return '商品名は必須です';}
 
         //他商品との名前かぶりの警告
         const duplicated = products.some(p =>
@@ -109,27 +122,22 @@ export default function ProductMasterPage() {
             p.productId !== editingId
         );
 
-        if (duplicated) {
-            return '同じ商品名がすでに存在しています'
-        };
+        if (duplicated) {return '同じ商品名がすでに存在しています'};
 
         //安全在庫・空白 or 数字以外 or 0未満
         if (
             product.safetyStock === '' ||
             isNaN(product.safetyStock) ||
             Number(product.safetyStock) < 0
-        ) {
-            return '安全在庫は0以上の数値で入力してください';
-        }
+        ) { return '安全在庫は0以上の数値で入力してください';}
 
         //最小発注単位・空白 or 数字以外 or 0未満 
         if (
             product.minOrderQty === '' ||
             isNaN(product.minOrderQty) ||
             Number(product.minOrderQty) < 0
-        ) {
-            return '最小発注数は0以上の数値で入力してください。'
-        }
+        ) { return '最小発注数は0以上の数値で入力してください。' }
+
         //問題ない時は何も返さない
         return null;
     }
@@ -183,14 +191,21 @@ export default function ProductMasterPage() {
                     showForm={showForm}/*商品登録フォームを見せたり隠すState */
                     setShowForm={setShowForm}/*上のStateを操作する*/
                     handleSubmit={handleSubmit} /*商品登録確定機能 */
-                    keyWord={keyWord}
-                    setKeyWord={setKeyWord}
+                    productKeyWord={productKeyWord}
+                    setProductKeyWord={setProductKeyWord}
+                    makerKeyWord={makerKeyWord}
+                    setMakerKeyWord={setMakerKeyWord}
+                    setShowDeleted={setShowDeleted}
+                    showDeleted={showDeleted}
                 /> 
                 <ProductMaster
                     products={products}
                     onDelete={handleDelete}
                     onUpdate={handleUpdate}
-                    keyWord={keyWord}                />
+                    productKeyWord={productKeyWord}
+                    makerKeyWord={makerKeyWord}
+                    showDeleted={showDeleted}
+                />
             </div>
         </>
     )
