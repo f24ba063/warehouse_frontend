@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\css",
-    "\\src\\pages",
-    "\\src\\pages\\Master",
+    "\\src\\pages\\Login",
     "\\src\\pages\\Master\\ProductMaster"
   ],
+  "SelectedNode": "\\src\\pages",
   "PreviewInSolutionExplorer": false
 }
