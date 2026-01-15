@@ -13,12 +13,17 @@ export default function Login() {
         setLoading(true);
 
         try {
-            const res = await fetch("/login", {
-                method: "post",
+            const body = new URLSearchParams();
+            body.append("username", username);
+            body.append("password", password);
+
+            const res = await fetch("http://localhost:8080/login", {
+                method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: JSON.stringify({ username, password })
+                body,
+                credentials: "include"
             });
 
             if (res.ok) {
