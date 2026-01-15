@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\src\\pages\\Master\\ProductMaster\\ProductMaster.jsx||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Master\\ProductMaster\\ProductMaster.jsx||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\src\\components\\AddingForms\\ProductAddingForm.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\AddingForms\\ProductAddingForm.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductAddingForm.jsx",
+              "DocumentMoniker": "C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\src\\components\\AddingForms\\ProductAddingForm.jsx",
+              "RelativeDocumentMoniker": "src\\components\\AddingForms\\ProductAddingForm.jsx",
+              "ToolTip": "C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\src\\components\\AddingForms\\ProductAddingForm.jsx",
+              "RelativeToolTip": "src\\components\\AddingForms\\ProductAddingForm.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-12-16T07:48:19.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductMasterPage.jsx",
+              "DocumentMoniker": "C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
+              "ToolTip": "C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
+              "RelativeToolTip": "src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-12-16T07:14:13.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductMaster.jsx",
+              "DocumentMoniker": "C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\src\\pages\\Master\\ProductMaster\\ProductMaster.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Master\\ProductMaster\\ProductMaster.jsx",
+              "ToolTip": "C:\\Users\\tjk037_\\source\\repos\\warehouseapp-frontend\\src\\pages\\Master\\ProductMaster\\ProductMaster.jsx",
+              "RelativeToolTip": "src\\pages\\Master\\ProductMaster\\ProductMaster.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-12-16T04:48:36.323Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 898,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
