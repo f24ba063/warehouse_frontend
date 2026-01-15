@@ -144,33 +144,33 @@ export default function ProductMasterRow({
                 )}
             </td>
            
-            <td>{/*二段階検査。編集ボタンは削除フラグが成立している時は表示自体されず、
-                現在編集中かどうかで表示が変わる*/}
+            <td>{/*二段階検査。当該行が削除済みだと何も表示されず、
+                削除されていない時は当該行を編集中かそうでないかで
+                ボタンの文言、機能が変わる*/}
                 {row.isVisible ===1 ?(
                     <>
-                    {isEditing ? (
-                        <>
+                        {isEditing ? (
                             <button onClick={handleFinish}>確定</button>
-                            <button onClick={handleCancel}>取消</button>
-                        </>
-                    ) : (
+                        ) : (
                             <button onClick={handleEditStart}>編集</button>
-                    )}
+                        )}
                     </>
                 ) : (
-                    <></>
+                        <>{/*削除行はボタンなどが入らない*/}</>
                 )}
             </td>
 
-            <td>{/*削除ボタン。削除済だと表示されなくなる*/}
+            <td>{/*同上。*/}
                 {row.isVisible === 1 ? (
                     <>
-                        {!isEditing && (
+                        {isEditing ? (
+                            <button onClick={handleCancel}>取消</button>
+                        ) : (
                             <button onClick={() => onDelete(row.productId)}>削除</button>
                         )}
                     </>
                 ) : (
-                    <></>
+                        <>{/*削除行はボタンなどが入らない*/}</>
                 )}
             </td>
         </tr>

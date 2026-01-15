@@ -32,3 +32,6 @@ If you are developing a production application, we recommend using TypeScript wi
 	数量チェック、在庫引き当てロジック
 	必要なら権限チェック
 ４．例外処理、エラー返却
+５．入力の全角・半角処理については、安易に警告を出すよりも自動的に全角・半角に変換されたほうがよい
+多様な特例：①など〇つきの数字や㌧、㍉などの表現、か゛などの表現
+６．削除、更新のさいにDBに問い合わせ、万が一データがなかった時のtry-catch
