@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\pages",
     "\\src\\pages\\Login",
-    "\\src\\pages\\Master\\ProductMaster"
+    "\\src\\pages\\Master",
+    "\\src\\pages\\Master\\ProductMaster",
+    "\\src\\utils"
   ],
-  "SelectedNode": "\\src\\pages",
+  "SelectedNode": "\\src\\pages\\Master\\ProductMaster\\ProductMasterPage.jsx",
   "PreviewInSolutionExplorer": false
 }

@@ -46,7 +46,7 @@ export default function ProductMasterPage() {
                 const data = await res.json();
                 setProducts(data);
             } catch (err) {
-                console.Error(`商品データ取得失敗:`, err);
+                console.error(`商品データ取得失敗:`, err);
             }
         };
         fetchProducts();
