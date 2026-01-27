@@ -8,6 +8,7 @@ import WarehouseMasterPage from '../pages/Master/WarehouseMaster/WarehouseMaster
 import MakerMasterPage from '../pages/Master/MakerMaster/MakerMasterPage'
 import PartnerMasterPage from '../pages/Master/PartnerMaster/PartnerMasterPage'
 import LocationMasterPage from '../pages/Master/LocationMaster/LocationMasterPage'
+import InventoryList from '../pages/InventoryList/InventoryList'
 
 export default function AppRouter() {
 
@@ -23,6 +24,7 @@ export default function AppRouter() {
                 <Route path="/master/makerMasterPage" element={<MakerMasterPage />} />
                 <Route path="/master/partnerMasterPage" element={<PartnerMasterPage />} />
                 <Route path="/master/locationMasterPage" element={<LocationMasterPage />} />
+                <Route path="/inventory" element={<InventoryList />} />
             </Routes>
         </Router>
     )

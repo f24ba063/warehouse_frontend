@@ -1,4 +1,4 @@
-:root {
+ï»¿:root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -27,7 +27,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 h1 {
@@ -67,7 +67,7 @@ button:focus-visible {
   }
 }
 
-/*ƒ}ƒXƒ^[‚ÉV—v‘f‚ğ’Ç‰Á‚·‚éƒtƒH[ƒ€*/
+/*ãƒã‚¹ã‚¿ãƒ¼ã«æ–°è¦ç´ ã‚’è¿½åŠ ã™ã‚‹ãƒ•ã‚©ãƒ¼ãƒ */
 .adding {
     border: 1px solid #000000;
     padding: 10px;

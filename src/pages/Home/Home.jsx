@@ -1,4 +1,5 @@
-﻿import { useNavigate } from 'react-router-dom';
+﻿
+import { useNavigate } from 'react-router-dom';
 import '../../css/home.css';
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
 	}
 	return (
 		<>
-			<h1>ホーム画面</h1>
+			<h1 id="home-title">ホーム画面</h1>
 
 			<div id="button-container-home">
 				<button
@@ -42,7 +43,7 @@ export default function Home() {
 				<button
 					type="button"
 					className="home-button"
-onClick={moveToInventory}
+					onClick={moveToInventory}
 					>
 					在庫一覧
 				</button>
