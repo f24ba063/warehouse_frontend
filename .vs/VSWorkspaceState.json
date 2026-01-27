@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\css"
+    "\\src\\pages",
+    "\\src\\pages\\InventoryList"
   ],
-  "SelectedNode": "\\src\\css\\header.css",
   "PreviewInSolutionExplorer": false
 }

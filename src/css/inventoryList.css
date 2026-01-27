@@ -5,6 +5,7 @@
     gap: 6px;
     padding: 6px 12px;
     background-color: #4e4e4e;
+    height :50px;
 }
 
 .header-item{
@@ -15,6 +16,7 @@
     font-size: 1rem;
 }
 
+/*ボタンの色、形*/
 .header-item.gold {
     background-color: #d4af37;
     color: #000;
@@ -23,4 +25,52 @@
 .header-item.black {
     background-color: #1a1a1a;
     color: #fff;
+}
+.inventory-header {
+    display: flex;
+    gap: 12px;
+    position: relative;
+}
+
+
+/* プルダウンの基準 */
+.dropdown-wrapper {
+    position: relative;
+}
+
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /* 見た目（既存があれば流用でOK） */
+    background-color: #2f2f2f;
+    border: 1px solid #555;
+    border-radius: 4px;
+    min-width: 120px;
+    margin-top: 4px;
+    z-index: 10;
+    /* ここからが追加 */
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+
+/* 中の項目 */
+.dropdown-item {
+    padding: 8px 12px;
+    color: #fff; /* ← これが本体 */
+    cursor: pointer;
+}
+
+
+    .dropdown-item:hover {
+        background-color: #444;
+    }
+.dropdown-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
