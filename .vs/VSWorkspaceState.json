@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\pages",
-    "\\src\\pages\\InventoryList"
+    "\\src\\components\\AddingForms",
+    "\\src\\pages"
   ],
+  "SelectedNode": "\\src\\components",
   "PreviewInSolutionExplorer": false
 }

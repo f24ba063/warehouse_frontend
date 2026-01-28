@@ -4,6 +4,7 @@
     align-items: center;
     gap: 6px;
     padding: 6px 12px;
+    margin-bottom: 100px;
     background-color: #4e4e4e;
     height :50px;
 }
@@ -47,30 +48,81 @@
     background-color: #2f2f2f;
     border: 1px solid #555;
     border-radius: 4px;
-    min-width: 120px;
+    min-width: 1px;
     margin-top: 4px;
     z-index: 10;
-    /* ここからが追加 */
+    /* デフォルトでは見えない状態についての記述 */
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-25px);
     pointer-events: none;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 
-/* 中の項目 */
+/* 「出庫」「入庫」のボタン */
 .dropdown-item {
     padding: 8px 12px;
     color: #fff; /* ← これが本体 */
+    white-space: nowrap; /* 無駄な改行をさせないための記述 */
     cursor: pointer;
 }
 
-
-    .dropdown-item:hover {
-        background-color: #444;
+/*ボタンからドロップダウンされた2段目ボタンの表現*/
+.dropdown-item:hover {
+    background-color: #444;
     }
 .dropdown-menu.open {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    white-space: nowrap;　 /* 無駄な改行をさせないための記述 */
+}
+/*テーブル全体についての装飾*/
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/*テーブルのボーダーの格子を、下線のみ*/
+    .inventory-table th,
+    .inventory-table td {
+        border: none;
+        border-bottom: 1px solid;
+        padding-top: 6px 8px;
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+td {
+    white-space: nowrap;
+}
+
+/*「在庫数」、「引当可能在庫数」を疑似的に隣り合わせるための表現*/
+.stock-qty{
+    width: 100px;
+}
+.stock-left{
+    text-align: right;
+    padding-right:2px;
+}
+.stock-right{
+    text-align: left;
+    padding-left: 2px;
+}
+
+/*在庫数と引当可能在庫の間に「/」（スラッシュ）を入れる*/
+.stock-left::after{
+    content: " /";
+    margin-right: 2px;
+}
+
+/*引当可能在庫が安全在庫を下回ったときの警告職*/
+.stock-warning{
+    background-color:pink;
+    padding:3px;
+    border-radius: 3px;
+    color:black;
 }
